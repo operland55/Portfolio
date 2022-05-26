@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Container, Img } from "./Element";
 
-const Container = styled.div`
+const Content = styled.div`
 	width: 1440px;
-	height: 100vh;
 	padding: 114px 0;
 	margin: 0 auto;
-	color: #fff;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	gap: 150px;
 `;
-const Content = styled.div`
+const ContentList = styled.div`
 	display: flex;
 	flex: 1;
 	flex-direction: column;
@@ -40,36 +39,36 @@ const BoxItem = styled.p`
 		background-color: gray;
 	}
 `;
-const Img = styled.div`
-	width: 500px;
-	height: 500px;
-	border-radius: 50%;
-	background-color: #786fff;
-	color: black;
-`;
+
 function Main() {
 	return (
 		<>
 			<Container>
 				<Content>
-					<Plist>Welcome to my World!</Plist>
-					<Name>I'm Jung Yoon jae</Name>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed magnam
-						id neque quod ea expedita nulla nobis architecto vitae ab facilis
-						minus tempora, itaque porro provident sapiente dolorem consectetur
-						eveniet!
-					</p>
-					<Box>
-						<BoxItem>
-							<Link to="/about">About</Link>
-						</BoxItem>
-						<BoxItem>
-							<Link to="/">Contact</Link>
-						</BoxItem>
-					</Box>
+					<ContentList>
+						<Plist>Welcome to my World!</Plist>
+						<Name>I'm Jung Yoon jae</Name>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
+							magnam id neque quod ea expedita nulla nobis architecto vitae ab
+							facilis minus tempora, itaque porro provident sapiente dolorem
+							consectetur eveniet!
+						</p>
+						<Box>
+							<BoxItem>
+								<Link to="/about">About</Link>
+							</BoxItem>
+							<BoxItem>
+								<Link to="/">Contact</Link>
+							</BoxItem>
+						</Box>
+					</ContentList>
+					<Img
+						width={"500px"}
+						height={"500px"}
+						backgroundColor={"#786fff;"}
+					></Img>
 				</Content>
-				<Img></Img>
 			</Container>
 		</>
 	);

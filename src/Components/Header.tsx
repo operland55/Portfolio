@@ -1,16 +1,25 @@
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Main from "./Main";
+import { FiSun } from "react-icons/fi";
+import { HiMoon } from "react-icons/hi";
+import { useState } from "react";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { isDarkAtom } from "@/atom";
 
 const Nav = styled.header`
 	width: 100%;
 	position: fixed;
 	top: 0;
 	left: 0;
-	color: #fff;
+	color: ${(props) => props.theme.textColor};
 	padding: 30px;
+	background-color: ${(props) => props.theme.bgColor};
+	@media (max-width: 568px) {
+		display: none;
+	} ;
 `;
-const Navchild = styled.div`
+const NavChild = styled.div`
 	max-width: 1440px;
 	display: flex;
 	align-items: center;
@@ -27,6 +36,9 @@ const Items = styled.div`
 `;
 const Item = styled.p`
 	font-size: 20px;
+	&:hover {
+		color: blue;
+	}
 `;
 const Switch = styled.div`
 	display: flex;
@@ -35,15 +47,18 @@ const Switch = styled.div`
 	width: 170px;
 `;
 const SwitchImg = styled.p`
-	width: 30px;
-	height: 10px;
-	background-color: #fff;
+	cursor: pointer;
 `;
 function Header() {
+	const [IsDark, SetIsDark] = useRecoilState(isDarkAtom);
+	const Btn = () => {
+		SetIsDark((cur) => !cur);
+	};
+	console.log(SetIsDark);
 	return (
 		<>
 			<Nav>
-				<Navchild>
+				<NavChild>
 					<Title>Portfolio</Title>
 					<Items>
 						<Item>
@@ -60,9 +75,11 @@ function Header() {
 						</Item>
 					</Items>
 					<Switch>
-						<SwitchImg />
+						<SwitchImg onClick={Btn}>
+							{IsDark ? <FiSun size={25} /> : <HiMoon size={25} />}
+						</SwitchImg>
 					</Switch>
-				</Navchild>
+				</NavChild>
 			</Nav>
 		</>
 	);
