@@ -17,7 +17,7 @@ export const Container = styled.div`
 	margin: 0 auto;
 	color: ${(props) => props.theme.textColor};
 	background-color: ${(props) => props.theme.bgColor};
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		width: 1440px;
 		padding: 114px 0;
 	}
@@ -32,7 +32,7 @@ export const MenuIcon = styled.div`
 		color: ${(props) => props.theme.textColor};
 		font-size: 24px;
 	}
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		display: none;
 	}
 `;
@@ -50,7 +50,7 @@ export const ImgBox = styled.div`
 		object-fit: cover;
 	}
 
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		width: 500px;
 		height: 500px;
 		margin-top: 0;

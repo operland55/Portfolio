@@ -13,12 +13,12 @@ interface Border {
 	borderBottom?: string;
 }
 const Nav = styled.header`
-	display:none;
+	display: none;
 	position: relative;
 	transition: opacity 1s ease-in-out;
 
-	@media ${(props) => props.theme.mobile} {
-		display:block;
+	@media ${(props) => props.theme.tablet} {
+		display: block;
 		width: 100%;
 		position: fixed;
 		top: 0px;
@@ -39,7 +39,7 @@ const NavChild = styled(FlexBox)`
 const Title = styled.h1`
 	width: 170px;
 	font-size: 32px;
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		font-size: 45px;
 	}
 `;
@@ -47,7 +47,7 @@ const Items = styled(FlexBox)`
 	gap: 50px;
 	flex-direction: row;
 	visibility: hidden;
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		visibility: visible;
 	}
 `;

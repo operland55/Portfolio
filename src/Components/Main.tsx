@@ -9,7 +9,7 @@ const Content = styled(FlexBox)`
 	padding: 20px;
 	flex-direction: column-reverse;
 	gap: 35px;
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		width: 1440px;
 		padding: 114px 0;
 		flex-direction: row;
@@ -25,20 +25,20 @@ const ContentList = styled(FlexBox)`
 	flex: 1;
 	gap: 30px;
 
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		align-items: flex-start;
 	}
 `;
 const Title = styled.h1`
 	font-size: 4vw;
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		font-size: 18px;
 	}
 `;
 const Name = styled.p`
 	padding-top: 20px;
 	font-size: 4vw;
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		font-size: 18px;
 	}
 `;
@@ -63,7 +63,7 @@ const Info = styled.p`
 	font-size: 3.7vw;
 	line-height: 2;
 
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		font-size: 24px;
 	}
 `;
@@ -83,7 +83,7 @@ const ImgBox = styled.div`
 		height: 100%;
 		object-fit: cover;
 	}
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		width: 500px;
 		height: 500px;
 		margin-top: 0;

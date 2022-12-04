@@ -6,7 +6,7 @@ import { FlexBox } from "./Element";
 import TomorrowSite from "../assets/Tomorrow-Home-Desk.jpg";
 const Content = styled.div`
 	padding: 25px;
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		height: 100%;
 	}
 `;
@@ -18,7 +18,7 @@ const ImgBox = styled.div`
 		height: 100%;
 		object-fit: cover;
 	}
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		height: 50vh;
 	}
 `;
@@ -32,7 +32,7 @@ const Period = styled.p`
 	span {
 		color: gray;
 	}
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 	}
 `;
 const Introduce = styled.p`

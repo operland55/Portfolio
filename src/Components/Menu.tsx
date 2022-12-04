@@ -13,7 +13,7 @@ const MenuContents = styled.div`
 	height: 100%;
 	background-color: ${(props) => props.theme.bgColor};
 	z-index: 100;
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		visibility: hidden;
 	}
 `;
@@ -42,6 +42,7 @@ function Menu() {
 	};
 
 	const itemMove = (e: string) => {
+		setBtn(false);
 		e === "Home" ? navigate(`/`) : navigate(`/${e}`);
 	};
 	return (

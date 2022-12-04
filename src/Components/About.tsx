@@ -8,7 +8,7 @@ import { useRecoilValue } from "recoil";
 import { isDarkAtom } from "../atom";
 
 const Div = styled.div`
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		border-radius: 30px;
 		padding: 30px;
 	}
@@ -16,7 +16,7 @@ const Div = styled.div`
 const Main = styled(FlexBox)`
 	padding: 60px;
 	flex-direction: column;
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
@@ -35,7 +35,7 @@ const H1 = styled.h1`
 	font-size: 4.7vw;
 	line-height: 25px;
 	padding-top: 50px;
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		font-size: 30px;
 		line-height: 50px;
 	}
@@ -44,7 +44,7 @@ const Info = styled.ul`
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 10px;
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		grid-template-columns: repeat(2, 1fr);
 	}
 `;
@@ -56,7 +56,7 @@ const InfoList = styled.li`
 	font-weight: 700;
 	padding: 30px;
 	font-size: 14px;
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		font-size: 18px;
 	}
 `;
@@ -74,7 +74,7 @@ const Title = styled.h1`
 		border-left: 1px solid red;
 		margin-right: 10px;
 	}
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		margin-bottom: 0;
 	}
 `;
@@ -82,7 +82,7 @@ const SkillItems = styled(FlexBox)`
 	flex-wrap: wrap;
 	justify-content: space-around;
 
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		padding-top: 30px;
 		margin-top: 30px;
 	}

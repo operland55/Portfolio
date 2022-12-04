@@ -10,16 +10,14 @@ const Title = styled.h1`
 	color: ${(props) => props.theme.textColor};
 	font-size: 35px;
 `;
-const Content = styled.div`
-	padding: 50px;
-`;
+const Content = styled.div``;
 const Items = styled(motion.ul)`
 	margin: 0 auto;
 	padding-top: 30px;
 	display: grid;
 	grid-template-columns: repeat(1, 1fr);
 	gap: 20px 0px;
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		grid-template-columns: repeat(3, 1fr);
 	}
 `;
@@ -38,7 +36,7 @@ const Item = styled(motion.li)`
 		width: 100%;
 		height: 100%;
 	}
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 	}
 `;
 const ProjectName = styled.p`
@@ -71,7 +69,7 @@ const BigProject = styled(motion.div)`
 	right: 0;
 	margin: 0 auto;
 	background-color: black;
-	@media ${(props) => props.theme.mobile} {
+	@media ${(props) => props.theme.tablet} {
 		width: 40vw;
 		height: 80vh;
 

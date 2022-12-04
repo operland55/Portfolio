@@ -7,9 +7,7 @@ const Wrapper = styled.div`
 function Home() {
 	return (
 		<Wrapper>
-			<div>
-				<Main />
-			</div>
+			<Main />
 		</Wrapper>
 	);
 }
