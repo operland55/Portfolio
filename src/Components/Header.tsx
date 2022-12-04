@@ -13,14 +13,12 @@ interface Border {
 	borderBottom?: string;
 }
 const Nav = styled.header`
-	visibility: hidden;
-	opacity: 0;
+	display:none;
 	position: relative;
 	transition: opacity 1s ease-in-out;
 
 	@media ${(props) => props.theme.mobile} {
-		visibility: visible;
-		opacity: 1;
+		display:block;
 		width: 100%;
 		position: fixed;
 		top: 0px;
