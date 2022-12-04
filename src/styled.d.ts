@@ -10,8 +10,7 @@ declare module "styled-components" {
 		borderColor: string;
 		hoveColor: string;
 		imgBgColor: string;
-		mobile: string;
-		tabletM: string;
+		tablet: string;
 		desktop: string;
 	}
 }
