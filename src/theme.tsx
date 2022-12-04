@@ -1,9 +1,8 @@
 import { DefaultTheme } from "styled-components";
 
 const size = {
-	mobile: "770px",
-	tabletM: "1220px",
-	desktop: "1460px",
+	tablet: "768px",
+	desktop: "1024px",
 };
 
 export const darkTheme: DefaultTheme = {
@@ -15,8 +14,7 @@ export const darkTheme: DefaultTheme = {
 	cardBgColor: "#0f204c",
 	hoveColor: "#4cb6f9",
 	imgBgColor: "#2f3542;",
-	mobile: `(min-width:${size.mobile})`,
-	tabletM: `(min-width:${size.tabletM})`,
+	tablet: `(min-width:${size.tablet})`,
 	desktop: `(min-width:${size.desktop})`,
 };
 
@@ -29,7 +27,6 @@ export const lightTheme: DefaultTheme = {
 	borderColor: "#f0a721",
 	hoveColor: "#aabbe6",
 	imgBgColor: "#e7e5e5",
-	mobile: `(min-width:${size.mobile})`,
-	tabletM: `(min-width:${size.tabletM})`,
+	tablet: `(min-width:${size.tablet})`,
 	desktop: `(min-width:${size.desktop})`,
 };
