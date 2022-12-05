@@ -20,6 +20,8 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
+  font-family: 'Gideon Roman', cursive;
+  font-weight: 400;
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
