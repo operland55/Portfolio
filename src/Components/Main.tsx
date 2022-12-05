@@ -51,7 +51,6 @@ const BoxItem = styled.p`
 	height: 38px;
 	line-height: 38px;
 	text-align: center;
-
 	background-color: ${(props) => props.theme.cardBgColor};
 	color: ${(props) => props.theme.accentColor};
 	border: 1px solid ${(props) => props.theme.borderColor};
@@ -73,21 +72,26 @@ const ImgBox = styled.div`
 	align-items: center;
 	width: 250px;
 	height: 300px;
-	background-color: ${(props) => props.theme.imgBgColor};
+	background-color: #212e4d;
 	border-radius: 50%;
 	margin-top: 75px;
 	img {
-		margin-bottom: 10px;
+		margin-top: 10px;
 		display: block;
 		width: auto;
 		height: 100%;
-		object-fit: cover;
 	}
 	@media ${(props) => props.theme.tablet} {
-		width: 500px;
+		width: 450px;
 		height: 500px;
 		margin-top: 0;
-		border-radius: 50%;
+		border-radius: 8px;
+		img {
+			margin-top: 100px;
+			display: block;
+			width: auto;
+			height: 400px;
+		}
 	}
 `;
 function Main() {
