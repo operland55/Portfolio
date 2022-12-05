@@ -22,7 +22,13 @@ export const Container = styled.div`
 		padding: 114px 0;
 	}
 `;
-
+export const InfoBtn = styled.button`
+	border-radius: 2px;
+	border: none;
+	padding: 10px;
+	border-radius: 8px;
+	background-color: ${(props) => props.theme.btnBgColor};
+`;
 export const MenuIcon = styled.div`
 	position: absolute;
 	cursor: pointer;
@@ -36,7 +42,18 @@ export const MenuIcon = styled.div`
 		display: none;
 	}
 `;
-
+export const MoveButton = styled.button`
+	position: absolute;
+	top: 50%;
+	z-index: 1;
+	border: none;
+	outline: none;
+	background-color: inherit;
+	svg {
+		font-size: 24px;
+		color: ${(props) => props.theme.textColor};
+	}
+`;
 export const ImgBox = styled.div`
 	width: 250px;
 	height: 300px;
