@@ -74,6 +74,12 @@ const Switch = styled(FlexBox)`
 const SwitchImg = styled.p`
 	cursor: pointer;
 `;
+const MobileSwitchImg = styled.p`
+	cursor: pointer;
+	position: absolute;
+	right: 35px;
+	color: ${(props) => props.theme.textColor};
+`;
 
 function Header() {
 	const [IsDark, SetIsDark] = useRecoilState(isDarkAtom);
@@ -92,10 +98,12 @@ function Header() {
 	};
 	return (
 		<>
-			<MenuIcon onClick={MenuBtn}>
-				<FiMenu />
+			<MenuIcon>
+				<MobileSwitchImg onClick={Btn}>
+					{IsDark ? <HiMoon size={25} /> : <FiSun size={25} />}
+				</MobileSwitchImg>
+				<FiMenu onClick={MenuBtn} />
 			</MenuIcon>
-
 			<Nav>
 				<NavChild>
 					<Title>Portfolio</Title>
