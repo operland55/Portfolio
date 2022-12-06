@@ -1,8 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Nanum+Gothic:wght@400;700;800&family=Newsreader:ital,opsz,wght@1,6..72,600&display=swap');
-html, body, div, span, applet, object, iframe,
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -20,8 +19,6 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  font-family: 'Gideon Roman', cursive;
-  font-weight: 400;
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -57,8 +54,10 @@ table {
   box-sizing: border-box;
 }
 body {
-  font-weight: 300;
-  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 400;
+  /* font-family: 'Noto Sans KR', sans-serif; */
+  font-family: 'Nunito';
+  /* font-family: 'Kenia', cursive; */
   line-height: 1.2;
 }
 a {
