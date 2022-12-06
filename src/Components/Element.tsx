@@ -21,7 +21,7 @@ export const Container = styled.div`
 		padding: 114px 0;
 	}
 	@media ${(props) => props.theme.desktop} {
-		width: 1440px;
+		max-width: 1440px;
 		padding: 114px 0;
 	}
 `;
@@ -46,8 +46,10 @@ export const MenuIcon = styled.div`
 	}
 `;
 export const MoveButton = styled.button`
+	cursor: pointer;
 	position: absolute;
-	top: 50%;
+	top: 60%;
+	transform: translateY(-50%);
 	z-index: 1;
 	border: none;
 	outline: none;
@@ -55,26 +57,6 @@ export const MoveButton = styled.button`
 	svg {
 		font-size: 24px;
 		color: ${(props) => props.theme.textColor};
-	}
-`;
-export const ImgBox = styled.div`
-	width: 250px;
-	height: 300px;
-	background-color: #fff;
-	border-radius: 50%;
-	margin-top: 75px;
-	img {
-		display: block;
-		width: 100%;
-		height: auto;
-		object-fit: cover;
-	}
-
-	@media ${(props) => props.theme.tablet} {
-		width: 500px;
-		height: 500px;
-		margin-top: 0;
-		border-radius: 8px;
 	}
 `;
 
