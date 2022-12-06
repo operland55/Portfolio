@@ -6,13 +6,8 @@ import Chart from "./Chart";
 import { Container, FlexBox } from "./Element";
 import { useRecoilValue } from "recoil";
 import { isDarkAtom } from "../atom";
-
-const Div = styled.div`
-	@media ${(props) => props.theme.tablet} {
-		border-radius: 30px;
-		padding: 30px;
-	}
-`;
+import MyImg from "../assets/img2.jpg";
+const Div = styled.div``;
 const Main = styled(FlexBox)`
 	padding: 60px;
 	flex-direction: column;
@@ -23,38 +18,41 @@ const Main = styled(FlexBox)`
 		align-items: center;
 	}
 `;
+const ImgBox = styled.div`
+	width: 250px;
+	height: 300px;
+	margin-top: 35px;
+	border-radius: 16px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+		rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+		rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		border-radius: 16px;
+		object-fit: cover;
+	}
+	@media ${(props) => props.theme.tablet} {
+		margin: 0 auto;
+		border-radius: 8px;
+	}
+	@media ${(props) => props.theme.desktop} {
+		width: 400px;
+		height: 500px;
+	}
+`;
 const DivInfo = styled(FlexBox)`
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	gap: 60px 0;
 	@media ${(props) => props.theme.tablet} {
+		align-items: flex-start;
 	}
 `;
 
-const ImgBox = styled.div`
-	width: 250px;
-	height: 300px;
-	background-color: #fff;
-	border-radius: 50%;
-	margin-top: 75px;
-	img {
-		display: block;
-		width: 100%;
-		height: auto;
-		object-fit: cover;
-	}
-	@media ${(props) => props.theme.tablet} {
-		width: 500px;
-		height: 300px;
-		margin-top: 0;
-		border-radius: 8px;
-	}
-	@media ${(props) => props.theme.desktop} {
-		height: 500px;
-	}
-`;
 const Greetings = styled.h1`
 	color: ${(props) => props.theme.textColor};
 	font-size: 18px;
@@ -62,7 +60,7 @@ const Greetings = styled.h1`
 	padding-top: 50px;
 	@media ${(props) => props.theme.tablet} {
 		font-size: 18px;
-		padding-top: 10px;
+		padding-top: 0px;
 	}
 	@media ${(props) => props.theme.desktop} {
 		font-size: 24px;
@@ -81,8 +79,12 @@ const InfoList = styled.li`
 	font-weight: 700;
 	padding: 30px;
 	font-size: 14px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+		rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+		rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
 	@media ${(props) => props.theme.tablet} {
-		padding: 15px 20px;
+		padding: 20px;
 	}
 	@media ${(props) => props.theme.desktop} {
 		padding: 30px;
@@ -90,8 +92,6 @@ const InfoList = styled.li`
 	}
 `;
 const SkillBox = styled.div`
-	width: 100%;
-	height: 100%;
 	padding: 60px;
 `;
 
@@ -159,7 +159,9 @@ function About() {
 			<Container>
 				<Div>
 					<Main>
-						<ImgBox></ImgBox>
+						<ImgBox>
+							<img src={MyImg} alt="My-Img" />
+						</ImgBox>
 
 						<DivInfo>
 							<Greetings>
@@ -176,7 +178,7 @@ function About() {
 						</DivInfo>
 					</Main>
 					<SkillBox>
-						<Title className="title">
+						<Title>
 							<span />
 							My Skill
 						</Title>
