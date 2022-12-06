@@ -9,15 +9,14 @@ import { isDarkAtom, menuBtn } from "../atom";
 import { FlexBox, MenuIcon } from "./Element";
 import MenuScreen from "./Menu";
 import { motion, useAnimation } from "framer-motion";
-interface Border {
-	borderBottom?: string;
-}
+
 const Nav = styled.header`
 	display: none;
 	position: relative;
 	transition: opacity 1s ease-in-out;
 
 	@media ${(props) => props.theme.tablet} {
+		z-index: 1000;
 		display: block;
 		width: 100%;
 		padding: 30px;
@@ -26,8 +25,6 @@ const Nav = styled.header`
 		left: 0;
 		color: ${(props) => props.theme.textColor};
 		background-color: ${(props) => props.theme.bgColor};
-	}
-	@media ${(props) => props.theme.desktop} {
 	}
 `;
 const NavChild = styled(FlexBox)`
