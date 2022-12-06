@@ -61,7 +61,7 @@ function Chart({ possible, labels }: ChartNum) {
 							formatter: function (val: any) {
 								return parseInt(val);
 							},
-							color: "#111",
+							color: "blue",
 							fontSize: "26px",
 							show: true,
 						},
@@ -94,7 +94,7 @@ function Chart({ possible, labels }: ChartNum) {
 					options={state.options as any}
 					series={state.series}
 					type="radialBar"
-					width={150}
+					width={135}
 					height={180}
 				/>
 			}
