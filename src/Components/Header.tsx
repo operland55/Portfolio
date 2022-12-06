@@ -20,42 +20,43 @@ const Nav = styled.header`
 	@media ${(props) => props.theme.tablet} {
 		display: block;
 		width: 100%;
+		padding: 30px;
 		position: fixed;
-		top: 0px;
+		top: 0;
 		left: 0;
 		color: ${(props) => props.theme.textColor};
-		padding: 30px;
 		background-color: ${(props) => props.theme.bgColor};
+	}
+	@media ${(props) => props.theme.desktop} {
 	}
 `;
 const NavChild = styled(FlexBox)`
 	margin: 0 auto;
 	max-width: 1440px;
-	height: 0;
-	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 `;
 const Title = styled.h1`
 	width: 170px;
 	font-size: 32px;
-	@media ${(props) => props.theme.tablet} {
+	@media ${(props) => props.theme.desktop} {
 		font-size: 45px;
 	}
 `;
 const Items = styled(FlexBox)`
 	gap: 50px;
-	flex-direction: row;
-	visibility: hidden;
-	@media ${(props) => props.theme.tablet} {
-		visibility: visible;
+	@media ${(props) => props.theme.desktop} {
+		gap: 50px;
 	}
 `;
 const Item = styled(motion.p)`
 	position: relative;
-	font-size: 20px;
+	font-size: 12spx;
 	&:hover {
 		color: ${(props) => props.theme.hoveColor};
+	}
+	@media ${(props) => props.theme.desktop} {
+		font-size: 20px;
 	}
 `;
 const ItemBorder = styled(motion.span)`
@@ -67,9 +68,13 @@ const ItemBorder = styled(motion.span)`
 	left: 0;
 `;
 const Switch = styled(FlexBox)`
+	width: 50px;
 	align-items: center;
-	justify-content: center;
-	width: 170px;
+	justify-content: flex-end;
+	@media ${(props) => props.theme.desktop} {
+		width: 170px;
+		justify-content: center;
+	}
 `;
 const SwitchImg = styled.p`
 	cursor: pointer;

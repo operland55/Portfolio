@@ -10,13 +10,15 @@ const Content = styled(FlexBox)`
 	flex-direction: column-reverse;
 	gap: 35px;
 	@media ${(props) => props.theme.tablet} {
-		width: 1440px;
-		padding: 114px 0;
+		padding: 150px 30px;
 		flex-direction: row;
-		gap: 0px;
-		margin: 0 auto;
+		justify-content: space-between;
+	}
+	@media ${(props) => props.theme.desktop} {
+		width: 1440px;
 		justify-content: space-between;
 		gap: 150px;
+		padding: 114px 0;
 	}
 `;
 const ContentList = styled(FlexBox)`
@@ -24,7 +26,6 @@ const ContentList = styled(FlexBox)`
 	align-items: center;
 	flex: 1;
 	gap: 30px;
-
 	@media ${(props) => props.theme.tablet} {
 		align-items: flex-start;
 	}
@@ -54,8 +55,6 @@ const BoxItem = styled.p`
 	background-color: ${(props) => props.theme.cardBgColor};
 	color: ${(props) => props.theme.accentColor};
 	border: 1px solid ${(props) => props.theme.borderColor};
-	&:first-child {
-	}
 `;
 const Info = styled.p`
 	padding-top: 20px;
@@ -63,7 +62,7 @@ const Info = styled.p`
 	line-height: 2;
 
 	@media ${(props) => props.theme.tablet} {
-		font-size: 24px;
+		font-size: 18px;
 	}
 `;
 const ImgBox = styled.div`
@@ -82,14 +81,20 @@ const ImgBox = styled.div`
 		height: 100%;
 	}
 	@media ${(props) => props.theme.tablet} {
-		width: 450px;
-		height: 500px;
 		margin-top: 0;
 		border-radius: 8px;
 		img {
-			margin-top: 100px;
 			display: block;
 			width: auto;
+			height: 100%;
+		}
+	}
+	@media ${(props) => props.theme.desktop} {
+		width: 450px;
+		height: 500px;
+		margin-top: 0;
+		img {
+			margin-top: 100px;
 			height: 400px;
 		}
 	}
