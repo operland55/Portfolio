@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import ReactApexChart from "react-apexcharts";
 import Chart from "./Chart";
-import { Container, FlexBox, ImgBox } from "./Element";
+import { Container, FlexBox } from "./Element";
 import { useRecoilValue } from "recoil";
 import { isDarkAtom } from "../atom";
 
@@ -17,6 +17,7 @@ const Main = styled(FlexBox)`
 	padding: 60px;
 	flex-direction: column;
 	@media ${(props) => props.theme.tablet} {
+		gap: 0 30px;
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
@@ -27,26 +28,50 @@ const DivInfo = styled(FlexBox)`
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	gap: 60px;
+	gap: 60px 0;
+	@media ${(props) => props.theme.tablet} {
+	}
 `;
 
-const H1 = styled.h1`
+const ImgBox = styled.div`
+	width: 250px;
+	height: 300px;
+	background-color: #fff;
+	border-radius: 50%;
+	margin-top: 75px;
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+	@media ${(props) => props.theme.tablet} {
+		width: 500px;
+		height: 300px;
+		margin-top: 0;
+		border-radius: 8px;
+	}
+	@media ${(props) => props.theme.desktop} {
+		height: 500px;
+	}
+`;
+const Greetings = styled.h1`
 	color: ${(props) => props.theme.textColor};
-	font-size: 4.7vw;
-	line-height: 25px;
+	font-size: 18px;
+	line-height: 1.5;
 	padding-top: 50px;
 	@media ${(props) => props.theme.tablet} {
-		font-size: 30px;
-		line-height: 50px;
+		font-size: 18px;
+		padding-top: 10px;
+	}
+	@media ${(props) => props.theme.desktop} {
+		font-size: 24px;
 	}
 `;
 const Info = styled.ul`
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 10px;
-	@media ${(props) => props.theme.tablet} {
-		grid-template-columns: repeat(2, 1fr);
-	}
 `;
 const InfoList = styled.li`
 	width: 100%;
@@ -57,6 +82,10 @@ const InfoList = styled.li`
 	padding: 30px;
 	font-size: 14px;
 	@media ${(props) => props.theme.tablet} {
+		padding: 15px 20px;
+	}
+	@media ${(props) => props.theme.desktop} {
+		padding: 30px;
 		font-size: 18px;
 	}
 `;
@@ -79,16 +108,32 @@ const Title = styled.h1`
 	}
 `;
 const SkillItems = styled(FlexBox)`
-	flex-wrap: wrap;
+	width: 100%;
 	justify-content: space-around;
 
 	@media ${(props) => props.theme.tablet} {
 		padding-top: 30px;
 		margin-top: 30px;
+		flex-wrap: wrap;
 	}
 `;
 
 function About() {
+	const [word, setWord] = useState([
+		"노력을하는",
+		"열정적인",
+		"유행에 뒤쳐지지 않는",
+	]);
+	const [count, setCount] = useState(0);
+
+	// useEffect(() => {
+	// 	for (let i = 0; word.length; i++) {
+	// 		setInterval(() => {
+	// 			return setCount((cur) => (cur = cur + 1));
+	// 		}, i * 1000);
+	// 	}
+	// }, [word]);
+
 	const isDark = useRecoilValue(isDarkAtom);
 	const skills = [
 		{
@@ -117,10 +162,10 @@ function About() {
 						<ImgBox></ImgBox>
 
 						<DivInfo>
-							<H1>
-								My Name is Jung Yoon Jae & <br />
-								I'am Font-End Developer
-							</H1>
+							<Greetings>
+								안녕하세요 정윤재입니다 <br />
+								저는 누구보다 <span>{word[count]}</span> 개발자가 되고싶습니다
+							</Greetings>
 							<Info>
 								{Object.entries(infos).map(([key, value], index) => (
 									<InfoList key={index}>
