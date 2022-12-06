@@ -18,6 +18,9 @@ export const Container = styled.div`
 	color: ${(props) => props.theme.textColor};
 	background-color: ${(props) => props.theme.bgColor};
 	@media ${(props) => props.theme.tablet} {
+		padding: 114px 0;
+	}
+	@media ${(props) => props.theme.desktop} {
 		width: 1440px;
 		padding: 114px 0;
 	}
