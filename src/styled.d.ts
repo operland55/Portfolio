@@ -9,7 +9,8 @@ declare module "styled-components" {
 		btnBgColor: string;
 		borderColor: string;
 		hoveColor: string;
-		imgBgColor: string;
+		DetailCard: string;
+		DetailCardFontColor: string;
 		tablet: string;
 		desktop: string;
 	}
