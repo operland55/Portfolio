@@ -49,15 +49,15 @@ const Info = styled(FlexBox)`
 	}
 `;
 const ProjectName = styled.p`
-	color: ${(props) => props.theme.textColor};
+	color: ${(props) => props.theme.DetailCardFontColor};
 	span {
-		color: gray;
+		color: #666;
 	}
 `;
 const Period = styled.p`
-	color: #fff;
+	color: ${(props) => props.theme.DetailCardFontColor};
 	span {
-		color: gray;
+		color: #666;
 	}
 	@media ${(props) => props.theme.tablet} {
 	}
@@ -65,10 +65,10 @@ const Period = styled.p`
 const Introduce = styled.p`
 	padding-top: 20px;
 	line-height: 2;
-	color: #fff;
+	color: ${(props) => props.theme.DetailCardFontColor};
 `;
 const Skill = styled.p`
-	color: gray;
+	color: #666;
 	flex-shrink: 0;
 	span {
 		padding: 5px;
@@ -124,8 +124,20 @@ function ProjectDetail({ DetailId }: any) {
 							</Info>
 							<Introduce>{item.introduce}</Introduce>
 							<MoveSite>
-								<Github>Github</Github>
-								<LiveDemo>LiveDemo</LiveDemo>
+								<Github
+									onClick={() => {
+										window.open(item.github);
+									}}
+								>
+									Github
+								</Github>
+								<LiveDemo
+									onClick={() => {
+										window.open(item.liveDemo);
+									}}
+								>
+									LiveDemo
+								</LiveDemo>
 							</MoveSite>
 						</Content>
 					</>
