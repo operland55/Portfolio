@@ -26,11 +26,13 @@ export const Container = styled.div`
 	}
 `;
 export const InfoBtn = styled.button`
+	cursor: pointer;
 	border-radius: 2px;
 	border: none;
 	padding: 10px;
 	border-radius: 8px;
-	background-color: ${(props) => props.theme.btnBgColor};
+	background: ${(props) => props.theme.btnBgColor};
+	color: ${(props) => props.theme.textColor};
 `;
 export const MenuIcon = styled.div`
 	position: absolute;
