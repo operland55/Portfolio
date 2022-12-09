@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { isDarkAtom } from "../atom";
 import { Container, FlexBox } from "./Element";
 import MyImg from "../assets/MyImg.png";
+import { useState } from "react";
 
 const Content = styled(FlexBox)`
 	padding: 20px;
@@ -52,8 +53,9 @@ const BoxItem = styled.p`
 	height: 38px;
 	line-height: 38px;
 	text-align: center;
-	background-color: ${(props) => props.theme.cardBgColor};
-	color: ${(props) => props.theme.accentColor};
+	border-radius: 8px;
+	background: ${(props) => props.theme.btnBgColor};
+	color: ${(props) => props.theme.textColor};
 	border: 1px solid ${(props) => props.theme.borderColor};
 `;
 const Info = styled.p`
@@ -71,7 +73,10 @@ const ImgBox = styled.div`
 	align-items: center;
 	width: 250px;
 	height: 300px;
-	background-color: #212e4d;
+	background-color: ${(props) => props.theme.cardBgColor};
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+		rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+		rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 	border-radius: 50%;
 	margin-top: 75px;
 	img {
@@ -99,8 +104,10 @@ const ImgBox = styled.div`
 		}
 	}
 `;
+
 function Main() {
 	const isDark = useRecoilValue(isDarkAtom);
+
 	return (
 		<>
 			<Container>
@@ -119,12 +126,12 @@ function Main() {
 								<Link to="/about">About</Link>
 							</BoxItem>
 							<BoxItem>
-								<Link to="/">Contact</Link>
+								<Link to="/contact">Contact</Link>
 							</BoxItem>
 						</Box>
 					</ContentList>
 					<ImgBox>
-						<img src={MyImg} alt="" />
+						<img src={MyImg} alt="MyImgPic" />
 					</ImgBox>
 				</Content>
 			</Container>

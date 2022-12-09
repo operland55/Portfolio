@@ -49,6 +49,7 @@ const Items = styled(motion.ul)`
 	}
 `;
 const Item = styled(motion.li)`
+	background-image: ${(props) => props.theme.DetailCard};
 	color: ${(props) => props.theme.textColor};
 	padding: 0 20px;
 	display: flex;
@@ -57,14 +58,19 @@ const Item = styled(motion.li)`
 	align-items: center;
 
 	@media ${(props) => props.theme.tablet} {
+		border-radius: 20px;
 		flex-direction: row;
 		justify-content: center;
 		min-height: 500px;
 		gap: 6vw;
+		box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+			rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+			rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 	}
 `;
 const ImgBox = styled(motion.div)`
-	height: 220px;
+	width: 260px;
+	height: 170px;
 	img {
 		display: block;
 		border-radius: 10px;
@@ -73,6 +79,7 @@ const ImgBox = styled(motion.div)`
 	}
 	@media ${(props) => props.theme.tablet} {
 		width: 350px;
+		height: 220px;
 	}
 `;
 
@@ -87,6 +94,22 @@ const SiteInfo = styled(FlexBox)`
 `;
 const SiteName = styled.p`
 	margin-top: 5.3vw;
+
+	@media${(props) => props.theme.tablet} {
+		font-size: 24px;
+		margin-top: 10px;
+		margin-bottom: 20px;
+	}
+`;
+const Skill = styled.div`
+	margin-top: 5px;
+	span {
+		margin-left: 5px;
+	}
+`;
+const Function = styled.p`
+	margin-top: 5px;
+	font-size: 14px;
 `;
 const SimPleInfo = styled.p`
 	margin-top: 5.3vw;
@@ -98,11 +121,11 @@ const SimPleInfo = styled.p`
 
 const DetailBtn = styled.button`
 	color: ${(props) => props.theme.textColor};
-	background-color: ${(props) => props.theme.btnBgColor};
+	background: ${(props) => props.theme.btnBgColor};
 	align-self: flex-end;
 	padding: 5px 10px;
 	border-radius: 10px;
-	margin-top: 2.6vw;
+	margin-top: 30px;
 	cursor: pointer;
 	outline: none;
 	border: none;
@@ -126,7 +149,7 @@ const BigProject = styled(motion.div)`
 	left: 0;
 	right: 0;
 	margin: 0 auto;
-	background-color: #232323;
+	background-image: ${(props) => props.theme.DetailCard};
 	z-index: 100;
 	@media ${(props) => props.theme.tablet} {
 		width: 80vw;
@@ -135,7 +158,8 @@ const BigProject = styled(motion.div)`
 		overflow-y: auto;
 	}
 	@media ${(props) => props.theme.desktop} {
-		width: 40vw;
+		padding-top: 50px;
+		width: 50vw;
 	}
 `;
 
@@ -154,7 +178,7 @@ function Project() {
 	};
 	const prevPlease = () => {
 		setBack(true);
-		setVisible((prev) => (prev === Projects.length ? 1 : prev - 1));
+		setVisible((prev) => (prev === Projects.length ? prev - 1 : prev - 1));
 	};
 	const boxVariants = {
 		normal: {
@@ -199,10 +223,12 @@ function Project() {
 			<Content>
 				<Title>ProJect</Title>
 				<NextBtn>
-					<MdArrowForwardIos onClick={nextPlease} />
+					{visible == Projects.length ? null : (
+						<MdArrowForwardIos onClick={nextPlease} />
+					)}
 				</NextBtn>
 				<PrevBtn>
-					<MdArrowBackIosNew onClick={prevPlease} />
+					{visible == 1 ? null : <MdArrowBackIosNew onClick={prevPlease} />}
 				</PrevBtn>
 
 				<Items>
@@ -224,8 +250,16 @@ function Project() {
 										</ImgBox>
 
 										<SiteInfo>
-											<SiteName>{item.name}</SiteName>
-											<SimPleInfo>{item.introduce}</SimPleInfo>
+											<SiteName>{item.name} Site</SiteName>
+
+											<Skill>
+												사용언어:
+												{item.skill.map((item: any, key: string) => (
+													<span key={key}>{item},</span>
+												))}
+											</Skill>
+
+											<SimPleInfo>주요기능: {item.fun}</SimPleInfo>
 
 											<DetailBtn
 												onClick={() => {
@@ -251,7 +285,7 @@ function Project() {
 							onClick={() => navigate(-1)}
 						/>
 						<BigProject
-							style={{ top: scrollY.get() + 20 }}
+							style={{ top: scrollY.get() + 100 }}
 							layoutId={proJectMatch.params.id}
 						>
 							<ProjectDetail DetailId={proJectMatch.params.id} />
