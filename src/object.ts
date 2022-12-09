@@ -24,8 +24,8 @@ export const Projects = [
 			"인기있는영화 Tv 소개와 회원가입 기능과 로그인후 좋아하는 목록들을 한곳에 모았습니다",
 		introduce:
 			"처음으로 혼자 모든걸 만든 사이트입니다. 아무래도 넷플릭스 사이트를 많은분들이 포트폴리어로 올리다보니 한번 저만의 영화 소개 사이트를 만들고싶어서 사이트를 구경하면서 마음에 든 디자인을보고 기억해 두었다가 만들었습니다. 힘들었 던 점은 아무래도 레이아웃 짜는것과 라이브러리로 비록 구현하였지만 박스안에 여러가지 영화들을 자동으로 슬라이드 시키는게 힘들었습니다",
-		github: "https://github.com/operland55/About-Me",
-		liveDemo: "https://operland55.github.io/About-Me/",
+		github: "https://github.com/operland55/PortFolio-WebSite",
+		liveDemo: "https://relaxed-crumble-8ec459.netlify.app/",
 		fun: "react-query를 이용한 데이터 fetch, 검색기능 구현, recoil를 이용해서 회원가입 기능을 만들었습니다",
 	},
 
