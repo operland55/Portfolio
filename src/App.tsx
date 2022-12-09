@@ -11,6 +11,7 @@ import { isDarkAtom } from "./atom";
 import { darkTheme, lightTheme } from "./theme";
 import GlobalStyle from "./GlobalStyle";
 import ProjectDetail from "./Components/ProjectDetail";
+import Contact from "./Components/Contact";
 
 function App() {
 	const isDark = useRecoilValue(isDarkAtom);
@@ -26,6 +27,7 @@ function App() {
 					<Route path="/project" element={<Project />}>
 						<Route path="/project/:id" element={<ProjectDetail />} />{" "}
 					</Route>
+					<Route path="/contact" element={<Contact />} />
 				</Routes>
 			</BrowserRouter>
 		</ThemeProvider>
