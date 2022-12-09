@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Header from "./Header";
 import ReactApexChart from "react-apexcharts";
 import Chart from "./Chart";
@@ -7,6 +7,19 @@ import { Container, FlexBox } from "./Element";
 import { useRecoilValue } from "recoil";
 import { isDarkAtom } from "../atom";
 import MyImg from "../assets/img2.jpg";
+const move = keyframes`
+	0%{
+		color:#ee57ab;
+	}
+	50%{
+		color:#de1c12;
+	}
+	100%{
+		color:#c43d3d;
+		
+	}
+`;
+
 const Div = styled.div``;
 const Main = styled(FlexBox)`
 	padding: 60px;
@@ -58,6 +71,11 @@ const Greetings = styled.h1`
 	font-size: 18px;
 	line-height: 1.5;
 	padding-top: 50px;
+
+	span {
+		animation: ${move} 5000ms ease-in-out infinite;
+		/* color: red; */
+	}
 	@media ${(props) => props.theme.tablet} {
 		font-size: 18px;
 		padding-top: 0px;
@@ -118,21 +136,32 @@ const SkillItems = styled(FlexBox)`
 	}
 `;
 
+interface Word {
+	word: string[];
+}
+
 function About() {
-	const [word, setWord] = useState([
+	const [word, setWord] = useState("");
+	const [count, setCount] = useState(0);
+	const wordGroup: string[] = [
 		"노력을하는",
 		"열정적인",
 		"유행에 뒤쳐지지 않는",
-	]);
-	const [count, setCount] = useState(0);
+	];
 
-	// useEffect(() => {
-	// 	for (let i = 0; word.length; i++) {
-	// 		setInterval(() => {
-	// 			return setCount((cur) => (cur = cur + 1));
-	// 		}, i * 1000);
-	// 	}
-	// }, [word]);
+	const txt = "오늘은 뭐 먹지?";
+	const [Text, setText] = useState("");
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setWord(wordGroup[count]);
+			setCount(count + 1);
+		}, 3000);
+		if (count == wordGroup.length) {
+			setCount(0);
+		}
+		return () => clearInterval(interval);
+	}, [count]);
 
 	const isDark = useRecoilValue(isDarkAtom);
 	const skills = [
@@ -166,7 +195,7 @@ function About() {
 						<DivInfo>
 							<Greetings>
 								안녕하세요 정윤재입니다 <br />
-								저는 누구보다 <span>{word[count]}</span> 개발자가 되고싶습니다
+								저는 누구보다 <span>{word}</span> 개발자가 되고싶습니다
 							</Greetings>
 							<Info>
 								{Object.entries(infos).map(([key, value], index) => (
