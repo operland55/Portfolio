@@ -90,6 +90,7 @@ function Header() {
 	const homeMatch = useMatch("/");
 	const aboutMatch = useMatch("/about");
 	const projectMatch = useMatch("/project");
+	const contactMatch = useMatch("/contact");
 
 	const Btn = () => {
 		SetIsDark((cur) => !cur);
@@ -126,7 +127,9 @@ function Header() {
 							</NavLink>
 						</Item>
 						<Item>
-							<NavLink to="/">Contact</NavLink>
+							<NavLink to="/contact">
+								Contact{contactMatch && <ItemBorder layoutId="border-bottom" />}
+							</NavLink>
 						</Item>
 					</Items>
 					<Switch>
