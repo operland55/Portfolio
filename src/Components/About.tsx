@@ -180,7 +180,6 @@ function About() {
 		Phone: "010-5758-9884",
 		Language: "Japanese",
 		Email: "operland55@naver.com",
-		Work: "12",
 	};
 
 	return (
