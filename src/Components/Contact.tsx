@@ -74,7 +74,7 @@ const Text = styled.div`
 		font-size: 16px;
 	}
 	@media ${(props) => props.theme.desktop} {
-		font-size: 1.4vw;
+		font-size: 1.2vw;
 	}
 `;
 const ContactForm = styled.div`
@@ -126,10 +126,12 @@ const InputBox = styled.div`
 		transition: 0.5s;
 	}
 `;
-const Button = styled.button`
+const Button = styled.a`
+	display: inline-block;
+	background-color: #d3d0d0;
 	cursor: pointer;
 	margin-left: 20px;
-	margin-top: 20px;
+	margin-top: 30px;
 	border-radius: 8px;
 	border: none;
 	outline: none;
@@ -195,7 +197,7 @@ function Contact() {
 							</InputBox>
 						</form>
 
-						<Button>Send</Button>
+						<Button href="mailto:operland88@naver.com">Send</Button>
 					</ContactForm>
 				</ContainerBox>
 			</Container>

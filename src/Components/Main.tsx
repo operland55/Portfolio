@@ -10,6 +10,7 @@ const Content = styled(FlexBox)`
 	padding: 20px;
 	flex-direction: column-reverse;
 	gap: 35px;
+
 	@media ${(props) => props.theme.tablet} {
 		padding: 150px 30px;
 		flex-direction: row;
@@ -33,12 +34,14 @@ const ContentList = styled(FlexBox)`
 `;
 const Title = styled.h1`
 	font-size: 4vw;
+	font-weight: bold;
 	@media ${(props) => props.theme.tablet} {
 		font-size: 18px;
 	}
 `;
 const Name = styled.p`
 	padding-top: 20px;
+	font-weight: bold;
 	font-size: 4vw;
 	@media ${(props) => props.theme.tablet} {
 		font-size: 18px;
@@ -62,7 +65,7 @@ const Info = styled.p`
 	padding-top: 20px;
 	font-size: 3.7vw;
 	line-height: 2;
-
+	font-weight: bold;
 	@media ${(props) => props.theme.tablet} {
 		font-size: 18px;
 	}
@@ -118,8 +121,12 @@ function Main() {
 						<Info>
 							사용자 경험과 UI를 중요하게 생각하기 때문에 기획과 퍼블리싱에도
 							관심이 많습니다. 주 분야가 아니더라도 필요하다면 적극적으로
-							학습하고 스스로에게 내준 새로운 챌린지에 끊임없이 도전하고
-							해결합니다.
+							학습하고 스스로에게 내준 새로운 도전에 끊임없이 도전하고
+							해결합니다. <br />
+							'느린 것을 두려워 말고, 멈추는 것을 두려워하라' 라는 말이
+							있습니다. 어떤 분야든 배움에는 끝이 없습니다. 겸손의 자세로 배움을
+							게을리하지 않고, 빠르게 변화하는 트렌드에 맞춰 발전하는 프론트엔드
+							개발자가 되겠습니다.
 						</Info>
 						<Box>
 							<BoxItem>

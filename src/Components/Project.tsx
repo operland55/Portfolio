@@ -18,13 +18,19 @@ const Title = styled.h1`
 	color: ${(props) => props.theme.textColor};
 	font-size: 35px;
 	margin-top: 80px;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 	@media ${(props) => props.theme.tablet} {
 		margin-top: 114px;
+		margin-bottom: 55px;
 	}
 `;
 const NextBtn = styled(MoveButton)`
 	right: 0;
+
+	@media ${(props) => props.theme.tablet} {
+		top: 50%;
+	}
+
 	@media ${(props) => props.theme.desktop} {
 		right: 4vw;
 		svg {
@@ -34,7 +40,12 @@ const NextBtn = styled(MoveButton)`
 `;
 const PrevBtn = styled(MoveButton)`
 	left: 0;
+	@media ${(props) => props.theme.tablet} {
+		top: 50%;
+	}
+
 	@media ${(props) => props.theme.desktop} {
+		top: 50%;
 		left: 4vw;
 		svg {
 			font-size: 34px;
@@ -50,11 +61,18 @@ const Items = styled(motion.ul)`
 `;
 const Item = styled(motion.li)`
 	color: ${(props) => props.theme.textColor};
-	padding: 0 20px;
+	padding: 50px 20px;
 	display: flex;
 	width: 100%;
+	border-radius: 16px;
 	flex-direction: column;
 	align-items: center;
+	font-weight: bold;
+	background-image: ${(props) => props.theme.DetailCard};
+	background-color: ${(props) => props.theme.DetailCard};
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+		rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+		rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
 	@media ${(props) => props.theme.tablet} {
 		border-radius: 20px;
@@ -62,10 +80,6 @@ const Item = styled(motion.li)`
 		justify-content: center;
 		min-height: 500px;
 		gap: 6vw;
-		background-image: ${(props) => props.theme.DetailCard};
-		box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-			rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-			rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 	}
 `;
 const ImgBox = styled(motion.div)`
@@ -78,8 +92,8 @@ const ImgBox = styled(motion.div)`
 		height: 100%;
 	}
 	@media ${(props) => props.theme.tablet} {
-		width: 350px;
-		height: 220px;
+		width: 400px;
+		height: 250px;
 	}
 `;
 
@@ -149,6 +163,10 @@ const BigProject = styled(motion.div)`
 	left: 0;
 	right: 0;
 	margin: 0 auto;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	background-color: ${(props) => props.theme.DetailCard};
 	background-image: ${(props) => props.theme.DetailCard};
 	z-index: 100;
 	@media ${(props) => props.theme.tablet} {
@@ -159,7 +177,7 @@ const BigProject = styled(motion.div)`
 	}
 	@media ${(props) => props.theme.desktop} {
 		padding-top: 50px;
-		width: 50vw;
+		width: 55vw;
 	}
 `;
 
