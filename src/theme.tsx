@@ -14,7 +14,7 @@ export const darkTheme: DefaultTheme = {
 	borderColor: "#4cb6f9",
 	cardBgColor: "#0f204c",
 	hoveColor: "#4cb6f9",
-	DetailCard: "linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);",
+	DetailCard: "#0f2146",
 	DetailCardFontColor: "#fff",
 	tablet: `(min-width:${size.tablet})`,
 	desktop: `(min-width:${size.desktop})`,
