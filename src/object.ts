@@ -2,8 +2,22 @@ import MovieSite from "./assets/movieScreen.jpg";
 import TomorrowSite from "./assets/Tomorrow-Home-Desk.jpg";
 import AboutMe from "./assets/AboutMe.jpg";
 import NetFlix from "./assets/NetFlix.jpg";
+import Recipe from "./assets/recipe.jpg";
 
 export const Projects = [
+	{
+		name: "RecipeCook",
+		img: `${Recipe}`,
+		skill: ["sass", "react", "recoil"],
+		period: "2022-12-20 ~ 2023-01-03",
+		simpleIntroduce:
+			"음식 소개와 검색하면 음식에 대한 정보 요리방법이 나옵니다",
+		introduce:
+			"요리에 대한 궁금한 것을 검색하고 사진을클릭하면 요리 만드는 법이 나오게 설정하였습니다. 메뉴와 갤러리 메뉴를 선택하면 그거에 맞게 메뉴들이 화면에 나오게 하였습니다",
+		github: "https://github.com/operland55/Delicious-Recipes",
+		liveDemo: "https://jocular-concha-3b2ca9.netlify.app/",
+		fun: "Scroll 이벤트, Recipe Search기능, Menu Gallery Filter기능 ",
+	},
 	{
 		name: "SnowRainCloud",
 		img: `${MovieSite}`,
