@@ -90,7 +90,6 @@ const ImgBox = styled.div`
 	}
 	@media ${(props) => props.theme.tablet} {
 		margin-top: 0;
-		border-radius: 8px;
 		img {
 			display: block;
 			width: auto;
@@ -100,7 +99,6 @@ const ImgBox = styled.div`
 	@media ${(props) => props.theme.desktop} {
 		width: 450px;
 		height: 500px;
-		margin-top: 0;
 		img {
 			margin-top: 100px;
 			height: 400px;
