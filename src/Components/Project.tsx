@@ -37,9 +37,6 @@ const ProjectContent = styled.div`
 	align-items: center;
 	gap: 58px;
 	margin-top: 80px;
-	@media ${(props) => props.theme.tablet} {
-		grid-template-columns: repeat(auto-fit, minmax(350px, auto));
-	}
 `;
 const Row = styled(motion.div)`
 	position: relative;
