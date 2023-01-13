@@ -35,7 +35,7 @@ const ProjectContent = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, auto));
 	align-items: center;
-	gap: 38px;
+	gap: 58px;
 	margin-top: 80px;
 	@media ${(props) => props.theme.tablet} {
 		grid-template-columns: repeat(auto-fit, minmax(350px, auto));
@@ -78,6 +78,10 @@ const Layer = styled.div`
 		font-size: 20px;
 		font-weight: 600;
 		margin-bottom: 15px;
+	}
+	span {
+		color: skyblue;
+		font-weight: 700;
 	}
 `;
 const DetailBtn = styled.button`
@@ -179,7 +183,7 @@ function Project() {
 		<>
 			<Container>
 				<div className="project">
-					<MainText className="main-text">
+					<MainText>
 						<p>ProJect</p>
 						<h2>
 							<span>Latest</span> Project
@@ -201,7 +205,9 @@ function Project() {
 								<img src={item.img} alt="img" />
 								<Layer className="layer">
 									<h5>{item.name}</h5>
-									<p>{item.fun}</p>
+									<p>
+										<span>기능</span>: {item.fun}
+									</p>
 									<DetailBtn
 										onClick={() => {
 											btn(item.name);
