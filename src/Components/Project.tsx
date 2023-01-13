@@ -2,137 +2,84 @@ import { useState } from "react";
 import { Link, useMatch, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Projects } from "../object";
-import { Container, FlexBox, MoveButton } from "./Element";
+import { FlexBox, MoveButton } from "./Element";
 import Header from "./Header";
 import ProjectDetail from "./ProjectDetail";
 import { motion, AnimatePresence, useViewportScroll } from "framer-motion";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 
-const Content = styled.div`
-	position: relative;
-	margin: 0 auto;
+const Container = styled.div`
 	max-width: 1140px;
+	margin: 0 auto;
+	padding-top: 114px;
 `;
-const Title = styled.h1`
-	text-align: center;
-	color: ${(props) => props.theme.textColor};
-	font-size: 35px;
-	margin-top: 80px;
-	margin-bottom: 15px;
-	@media ${(props) => props.theme.tablet} {
-		margin-top: 114px;
-		margin-bottom: 55px;
-	}
-`;
-const NextBtn = styled(MoveButton)`
-	right: 0;
 
-	@media ${(props) => props.theme.tablet} {
-		top: 50%;
-	}
-
-	@media ${(props) => props.theme.desktop} {
-		right: 4vw;
-		svg {
-			font-size: 34px;
-		}
-	}
-`;
-const PrevBtn = styled(MoveButton)`
-	left: 0;
-	@media ${(props) => props.theme.tablet} {
-		top: 50%;
-	}
-
-	@media ${(props) => props.theme.desktop} {
-		top: 50%;
-		left: 4vw;
-		svg {
-			font-size: 34px;
-		}
-	}
-`;
-const Items = styled(motion.ul)`
-	padding-top: 10vw;
-	@media ${(props) => props.theme.tablet} {
-		padding-top: 0;
-		height: calc(100vh - 360px);
-	}
-`;
-const Item = styled(motion.li)`
-	color: ${(props) => props.theme.textColor};
-	padding: 50px 20px;
+const MainText = styled.div`
 	display: flex;
-	width: 100%;
-	border-radius: 16px;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	font-weight: bold;
-	background-image: ${(props) => props.theme.DetailCard};
-	background-color: ${(props) => props.theme.DetailCard};
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-		rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-		rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
-	@media ${(props) => props.theme.tablet} {
-		border-radius: 20px;
-		flex-direction: row;
-		justify-content: center;
-		min-height: 500px;
-		gap: 6vw;
+	color: ${(props) => props.theme.textColor};
+	p {
+		font-size: 24px;
+	}
+	h2 {
+		font-weight: 600;
+		font-size: 48px;
+		span {
+			color: #e79e15;
+		}
 	}
 `;
-const ImgBox = styled(motion.div)`
-	width: 260px;
-	height: 170px;
+const ProjectContent = styled.div`
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+	align-items: center;
+	gap: 38px;
+	margin-top: 80px;
+	@media ${(props) => props.theme.tablet} {
+		grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+	}
+`;
+const Row = styled(motion.div)`
+	position: relative;
+	overflow: hidden;
+	border-radius: 8px;
+	cursor: pointer;
 	img {
-		display: block;
-		border-radius: 10px;
 		width: 100%;
+		height: auto;
+		border-radius: 8px;
+		display: block;
+		transition: transform 0.5s;
+	}
+	&:hover .layer {
 		height: 100%;
 	}
-	@media ${(props) => props.theme.tablet} {
-		width: 400px;
-		height: 250px;
-	}
 `;
 
-const SiteInfo = styled(FlexBox)`
+const Layer = styled.div`
+	width: 100%;
+	height: 0;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, 0.1), #ff004f);
+	position: absolute;
+	border-radius: 8px;
+	left: 0;
+	bottom: 0;
+	overflow: hidden;
+	display: flex;
 	flex-direction: column;
-	font-size: 3.7vw;
-	@media ${(props) => props.theme.tablet} {
-		align-items: flex-start;
-		max-width: 400px;
-		font-size: 16px;
+	justify-content: center;
+	align-items: center;
+	padding: 0 40px;
+	transition: height 0.5s;
+	h5 {
+		font-size: 20px;
+		font-weight: 600;
+		margin-bottom: 15px;
 	}
 `;
-const SiteName = styled.p`
-	margin-top: 5.3vw;
-
-	@media${(props) => props.theme.tablet} {
-		font-size: 24px;
-		margin-top: 10px;
-		margin-bottom: 20px;
-	}
-`;
-const Skill = styled.div`
-	margin-top: 5px;
-	span {
-		margin-left: 5px;
-	}
-`;
-const Function = styled.p`
-	margin-top: 5px;
-	font-size: 14px;
-`;
-const SimPleInfo = styled.p`
-	margin-top: 5.3vw;
-	line-height: 1.5;
-	@media ${(props) => props.theme.tablet} {
-		margin-top: 20px;
-	}
-`;
-
 const DetailBtn = styled.button`
 	color: ${(props) => props.theme.textColor};
 	background: ${(props) => props.theme.btnBgColor};
@@ -178,9 +125,9 @@ const BigProject = styled(motion.div)`
 	@media ${(props) => props.theme.desktop} {
 		padding-top: 50px;
 		width: 55vw;
+		border-radius: 50px;
 	}
 `;
-
 function Project() {
 	const { scrollY } = useViewportScroll();
 	const proJectMatch = useMatch("/project/:id");
@@ -188,16 +135,8 @@ function Project() {
 	const btn = (e: string) => {
 		navigate(`/project/${e}`);
 	};
-	const [visible, setVisible] = useState(1);
 	const [back, setBack] = useState(false);
-	const nextPlease = () => {
-		setBack(false);
-		setVisible((prev) => (prev === Projects.length ? 1 : prev + 1));
-	};
-	const prevPlease = () => {
-		setBack(true);
-		setVisible((prev) => (prev === Projects.length ? prev - 1 : prev - 1));
-	};
+
 	const boxVariants = {
 		normal: {
 			scale: 1,
@@ -238,79 +177,61 @@ function Project() {
 
 	return (
 		<>
-			<Content>
-				<Title>ProJect</Title>
-				<NextBtn>
-					{visible == Projects.length ? null : (
-						<MdArrowForwardIos onClick={nextPlease} />
-					)}
-				</NextBtn>
-				<PrevBtn>
-					{visible == 1 ? null : <MdArrowBackIosNew onClick={prevPlease} />}
-				</PrevBtn>
+			<Container>
+				<div className="project">
+					<MainText className="main-text">
+						<p>ProJect</p>
+						<h2>
+							<span>Latest</span> Project
+						</h2>
+					</MainText>
 
-				<Items>
-					<AnimatePresence>
-						{Projects.map((item: any, key: number) =>
-							visible === key + 1 ? (
-								<>
-									<Item
-										custom={back}
-										key={key}
-										variants={box}
-										initial="invisible"
-										animate="visible"
-										exit="exit"
-										layoutId={item.name}
+					<ProjectContent className="project-content">
+						{Projects.map((item, key) => (
+							<Row
+								className="row"
+								key={key}
+								custom={back}
+								variants={box}
+								initial="invisible"
+								animate="visible"
+								exit="exit"
+								layoutId={item.name}
+							>
+								<img src={item.img} alt="img" />
+								<Layer className="layer">
+									<h5>{item.name}</h5>
+									<p>{item.fun}</p>
+									<DetailBtn
+										onClick={() => {
+											btn(item.name);
+										}}
 									>
-										<ImgBox>
-											<img src={item.img} alt="Homepage Img" />
-										</ImgBox>
-
-										<SiteInfo>
-											<SiteName>{item.name} Site</SiteName>
-
-											<Skill>
-												사용언어:
-												{item.skill.map((item: any, key: string) => (
-													<span key={key}>{item},</span>
-												))}
-											</Skill>
-
-											<SimPleInfo>주요기능: {item.fun}</SimPleInfo>
-
-											<DetailBtn
-												onClick={() => {
-													btn(item.name);
-												}}
-											>
-												상세정보
-											</DetailBtn>
-										</SiteInfo>
-									</Item>
-								</>
-							) : null
-						)}
-					</AnimatePresence>
-				</Items>
-			</Content>
-			<AnimatePresence>
-				{proJectMatch ? (
-					<>
-						<Overlay
-							animate={{ opacity: 1 }}
-							exit={{ opacity: 0 }}
-							onClick={() => navigate(-1)}
-						/>
-						<BigProject
-							style={{ top: scrollY.get() + 100 }}
-							layoutId={proJectMatch.params.id}
-						>
-							<ProjectDetail DetailId={proJectMatch.params.id} />
-						</BigProject>
-					</>
-				) : null}
-			</AnimatePresence>{" "}
+										상세정보
+									</DetailBtn>
+								</Layer>
+							</Row>
+						))}
+					</ProjectContent>
+				</div>
+				<AnimatePresence>
+					{proJectMatch ? (
+						<>
+							<Overlay
+								animate={{ opacity: 1 }}
+								exit={{ opacity: 0 }}
+								onClick={() => navigate(-1)}
+							/>
+							<BigProject
+								style={{ top: scrollY.get() + 100 }}
+								layoutId={proJectMatch.params.id}
+							>
+								<ProjectDetail DetailId={proJectMatch.params.id} />
+							</BigProject>
+						</>
+					) : null}
+				</AnimatePresence>{" "}
+			</Container>
 		</>
 	);
 }
